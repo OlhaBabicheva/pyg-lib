@@ -25,7 +25,7 @@ jobs:
 
       - name: Configure
         run: |
-          pip install mkl-include==${MKL_VERSION} mkl-devel==${MKL_VERSION}
+          pip install mkl==${MKL_VERSION} mkl-include==${MKL_VERSION} mkl-devel==${MKL_VERSION}
           mkdir build
           cd build
           
