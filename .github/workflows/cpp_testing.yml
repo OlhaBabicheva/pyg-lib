@@ -33,7 +33,7 @@ jobs:
           
           cd $LIBS_DIR
           for library in `ls *.so.2`; do
-            ln -s ${library} ${library::-2}
+            ln -s ${library} ${library::-2} || true
           done
           cd -
           
