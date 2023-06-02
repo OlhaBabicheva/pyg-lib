@@ -32,7 +32,7 @@ jobs:
           export MKL_DIR=`python -c 'import os;import sysconfig;data=sysconfig.get_path("data");print(f"{data}{os.sep}lib{os.sep}cmake{os.sep}mkl")'`
           
           cd $LIBS_DIR
-          for library in `ls libmkl*.so.2`; do
+          for library in `ls *.so.2`; do
             ln -s ${library} ${library::-2}
           done
           cd -
