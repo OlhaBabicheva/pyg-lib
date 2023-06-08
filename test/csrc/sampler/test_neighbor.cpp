@@ -1,6 +1,6 @@
 #include <ATen/ATen.h>
 #include <gtest/gtest.h>
-
+#include <iostream>
 #include "pyg_lib/csrc/sampler/neighbor.h"
 #include "pyg_lib/csrc/utils/types.h"
 #include "test/csrc/graph.h"
@@ -44,6 +44,10 @@ TEST(WithoutReplacementNeighborTest, BasicAssertions) {
       /*seed_time=*/c10::nullopt, /*csc=*/false, /*replace=*/false);
 
   auto expected_row = at::tensor({0, 1, 2, 3}, options);
+  std::cout << "out 0: " << std::get<0>(out);
+  std::cout << "out 1: " << std::get<1>(out);
+  std::cout << "out 2: " << std::get<2>(out);
+  std::cout << "out 3: " << std::get<3>(out).value();
   EXPECT_TRUE(at::equal(std::get<0>(out), expected_row));
   auto expected_col = at::tensor({2, 3, 0, 4}, options);
   EXPECT_TRUE(at::equal(std::get<1>(out), expected_col));
