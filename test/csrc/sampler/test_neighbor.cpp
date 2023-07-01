@@ -45,11 +45,12 @@ TEST(WithoutReplacementNeighborTest, BasicAssertions) {
 
   auto expected_row = at::tensor({0, 1, 2, 3}, options);
   std::cout << "out 0: " << std::get<0>(out);
+  std::cout << "expected: " << expected_row << std::endl;
   std::cout << "out 1: " << std::get<1>(out);
   std::cout << "out 2: " << std::get<2>(out);
   std::cout << "out 3: " << std::get<3>(out).value();
   EXPECT_TRUE(at::equal(std::get<0>(out), expected_row));
-  EXPECT_TRUE(at::equal({1, 2, 3}, at::tensor({1, 2, 3}, options)));
+  EXPECT_TRUE(at::equal(expected_row, expected_row));
   auto expected_col = at::tensor({2, 3, 0, 4}, options);
   EXPECT_TRUE(at::equal(std::get<1>(out), expected_col));
   auto expected_nodes = at::tensor({2, 3, 1, 4, 5}, options);
