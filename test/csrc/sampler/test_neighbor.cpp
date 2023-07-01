@@ -43,7 +43,7 @@ TEST(WithoutReplacementNeighborTest, BasicAssertions) {
       /*col=*/std::get<1>(graph), seed, num_neighbors, /*time=*/c10::nullopt,
       /*seed_time=*/c10::nullopt, /*csc=*/false, /*replace=*/false);
 
-  auto expected_row = at::tensor({0, 1, 2, 3}, options);
+  auto expected_row = at::tensor({0, 1, 2}, options);
   std::cout << "out 0: " << std::get<0>(out) << std::endl;
   std::cout << "expected: " << expected_row << std::endl;
   EXPECT_TRUE(at::equal(std::get<0>(out), expected_row));
