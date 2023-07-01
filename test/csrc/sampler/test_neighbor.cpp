@@ -44,18 +44,18 @@ TEST(WithoutReplacementNeighborTest, BasicAssertions) {
       /*seed_time=*/c10::nullopt, /*csc=*/false, /*replace=*/false);
 
   auto expected_row = at::tensor({0, 1, 2, 3}, options);
-  std::cout << "out 0: " << std::get<0>(out).values() << std::endl;
+  std::cout << "out 0: " << std::get<0>(out) << std::endl;
   std::cout << "expected: " << expected_row << std::endl;
   EXPECT_TRUE(at::equal(std::get<0>(out), expected_row));
   EXPECT_TRUE(at::equal(expected_row, expected_row));
   
   auto expected_col = at::tensor({2, 3, 0, 4}, options);
-  std::cout << "out 1: " << std::get<1>(out).values() << std::endl;
+  std::cout << "out 1: " << std::get<1>(out) << std::endl;
   std::cout << "expected_col: " << expected_col << std::endl;
   EXPECT_TRUE(at::equal(std::get<1>(out), expected_col));
   
   auto expected_nodes = at::tensor({2, 3, 1, 4, 5}, options);
-  std::cout << "out 2: " << std::get<2>(out).values() << std::endl;
+  std::cout << "out 2: " << std::get<2>(out) << std::endl;
   std::cout << "expected_nodes: " << expected_nodes << std::endl;
   EXPECT_TRUE(at::equal(std::get<2>(out), expected_nodes));
   
