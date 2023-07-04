@@ -40,7 +40,8 @@ TEST(WithoutReplacementNeighborTest, BasicAssertions) {
   at::manual_seed(123456);
   auto out = pyg::sampler::neighbor_sample(
       /*rowptr=*/std::get<0>(graph),
-      /*col=*/std::get<1>(graph), seed, num_neighbors);
+      /*col=*/std::get<1>(graph), seed, num_neighbors, /*time=*/c10::nullopt,
+      /*seed_time=*/c10::nullopt, /*csc=*/false, /*replace=*/false);
 
   auto expected_row = at::tensor({0, 1, 2, 3}, options);
   EXPECT_TRUE(at::equal(std::get<0>(out), expected_row));
