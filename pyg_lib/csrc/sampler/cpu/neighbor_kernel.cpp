@@ -162,7 +162,7 @@ class NeighborSampler {
           auto rnd = arr[i];
           if (!index_tracker.try_insert(rnd)) {
             rnd = population - count + i;
-            index_tracker.insert(i);
+            index_tracker.insert(population - count + i);
           }
           const auto edge_id = row_start + rnd;
           add(edge_id, global_src_node, local_src_node, dst_mapper,
